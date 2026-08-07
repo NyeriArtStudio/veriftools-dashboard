@@ -1,1 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VerifTools Dashboard</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🪪 Driver License Generator</h1>
+        
+        <div id="stateSelector">
+            <h2>Select State</h2>
+            <div id="statesGrid" class="states-grid">
+                <p>Loading...</p>
+            </div>
+        </div>
 
+        <div id="formSection" class="hidden">
+            <div class="form-header">
+                <button id="backBtn" class="btn-small">← Back</button>
+                <h2 id="stateTitle">State</h2>
+            </div>
+            
+            <form id="licenseForm">
+                <div id="dynamicFields"></div>
+                
+                <fieldset>
+                    <legend>Photo *</legend>
+                    <div class="form-group">
+                        <label for="photo">Upload Photo (JPG/PNG, max 10MB)</label>
+                        <input type="file" id="photo" name="photo" accept="image/jpeg,image/png" required>
+                        <div id="photoPreview"></div>
+                    </div>
+                </fieldset>
+
+                <button type="submit" id="submitBtn">
+                    <span class="btn-text">Generate License</span>
+                    <span class="spinner hidden">⏳ Generating...</span>
+                </button>
+            </form>
+        </div>
+
+        <div id="resultSection" class="hidden">
+            <h2>Generated License</h2>
+            <div id="outputContainer"></div>
+            <a id="downloadLink" class="btn hidden" download>Download</a>
+            <button id="resetBtn" class="btn-secondary">Generate Another</button>
+        </div>
+
+        <div id="errorBox" class="hidden error"></div>
+    </div>
+
+    <script src="/app.js"></script>
+</body>
+</html>
